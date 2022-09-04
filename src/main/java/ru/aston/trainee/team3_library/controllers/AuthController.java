@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aston.trainee.team3_library.entities.Role;
 import ru.aston.trainee.team3_library.entities.RoleEnum;
+
 import ru.aston.trainee.team3_library.entities.User;
+import ru.aston.trainee.team3_library.repositories.RoleRepository;
+import ru.aston.trainee.team3_library.repositories.UserRepository;
 import ru.aston.trainee.team3_library.response.JwtResponse;
 import ru.aston.trainee.team3_library.response.LoginRequest;
 import ru.aston.trainee.team3_library.response.MessageResponse;
@@ -32,7 +35,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class AuthRESTController {
+public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -73,16 +76,16 @@ public class AuthRESTController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest) {
 
-        if (userRepository.existsByUsername(signupRequest.getUsername())) {
+        if (userRepository.existsByEmail(signupRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Username is exist"));
+                    .body(new MessageResponse("Error: Email is exist"));
         }
 
 
-        User user = new User(signupRequest.getName(), passwordEncoder.encode(signupRequest.getPassword()),
-                signupRequest.getSurname(),
-                signupRequest.getUsername());
+        User user = new User(signupRequest.getFirstName(), passwordEncoder.encode(signupRequest.getPassword()),
+                signupRequest.getLastName(),
+                signupRequest.getEmail());
 
         Set<String> reqRoles = signupRequest.getRoleSet();
         Set<Role> roles = new HashSet<>();
@@ -105,7 +108,7 @@ public class AuthRESTController {
                     case "moderator":
                         Role modRole = roleRepository
                                 .findByName(RoleEnum.ROLE_MODERATOR)
-                                .orElseThrow(() -> new RuntimeException("Error, Role ADMIN is not found"));
+                                .orElseThrow(() -> new RuntimeException("Error, Role MODERATOR is not found"));
                         roles.add(modRole);
 
                         break;

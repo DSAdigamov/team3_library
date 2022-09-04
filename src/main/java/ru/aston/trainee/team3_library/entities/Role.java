@@ -1,9 +1,12 @@
 package ru.aston.trainee.team3_library.entities;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
+@NoArgsConstructor
 public class Role {
     @Id
     @Column(name = "id", nullable = false)

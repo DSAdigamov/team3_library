@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "transactions")

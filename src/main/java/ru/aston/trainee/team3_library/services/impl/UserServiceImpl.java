@@ -6,6 +6,7 @@ import ru.aston.trainee.team3_library.repositories.UserRepository;
 import ru.aston.trainee.team3_library.services.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,4 +30,6 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Long bookId) {
         userRepository.deleteById(bookId);
     }
+
+
 }

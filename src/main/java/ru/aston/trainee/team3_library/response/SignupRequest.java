@@ -3,18 +3,18 @@ package ru.aston.trainee.team3_library.response;
 import java.util.Set;
 
 public class SignupRequest {
-    private String username;
+    private String email;
     private Set<String> roleSet;
     private String password;
-    private String surname;
-    private String name;
+    private String lastName;
+    private String firstName;
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String username) {
+        this.email = username;
     }
 
     public Set<String> getRoleSet() {
@@ -33,19 +33,19 @@ public class SignupRequest {
         this.password = password;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

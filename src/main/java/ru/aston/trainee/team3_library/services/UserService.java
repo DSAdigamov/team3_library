@@ -4,6 +4,7 @@ import ru.aston.trainee.team3_library.entities.Book;
 import ru.aston.trainee.team3_library.entities.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -12,5 +13,6 @@ public interface UserService {
     User getUserById(Long userId);
 
     void deleteUserById(Long bookId);
+
 
 }
