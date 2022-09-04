@@ -16,6 +16,12 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
+    @ManyToMany(mappedBy = "books")
+    private List<Transactions> transactions;
+
+    @ManyToMany(mappedBy = "books")
+    private List<User> users;
+
     @Lob
     @Column(name = "genre")
     private String genre;
@@ -36,6 +42,22 @@ public class Book {
     @Lob
     @Column(name = "image_link")
     private String imageLink;
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public void setTransactions(List<Transactions> transactions) {
+        this.transactions = transactions;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public List<Transactions> getTransactions() {
+        return transactions;
+    }
 
     public Long getId() {
         return id;

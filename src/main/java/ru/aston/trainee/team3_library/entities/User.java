@@ -14,6 +14,18 @@ public class User {
     @OneTomany(mappedBy = "user")
     private List<Transactions> transactions;
 
+    @ManyToMany
+    @JoinTable(name = "users_books",
+            joinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "books_id"))
+    private List<Book> books;
+
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
+
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -39,6 +51,16 @@ public class User {
     @Lob @Type(type = "org.hibernate.type.TextType")
     @Column(name = "profile_picture_link")
     private String profilePictureLink;
+
+
+
+    public List<Transactions> getTransactions() {
+        return transactions;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
 
     public Long getId() {
         return id;

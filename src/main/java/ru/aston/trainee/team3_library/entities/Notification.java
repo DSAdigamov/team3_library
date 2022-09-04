@@ -24,6 +24,14 @@ public class Notification {
     @Column(name = "image_small_link")
     private String imageSmallLink;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
+
     public Long getId() {
         return id;
     }

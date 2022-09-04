@@ -7,9 +7,9 @@ import java.time.LocalDate;
 @Table(name = "subscription")
 public class Subscription {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id", nullable = false)
-    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+//    @Column(name = "user_id")
     private Long id;
 
     @OneToOne
