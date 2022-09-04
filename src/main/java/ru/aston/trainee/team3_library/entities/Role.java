@@ -11,7 +11,12 @@ public class Role {
 
     @Lob
     @Column(name = "name")
-    private String name;
+    @Enumerated
+    private RoleEnum name;
+
+    public Role(RoleEnum name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
@@ -21,11 +26,11 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
+    public RoleEnum getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(RoleEnum name) {
         this.name = name;
     }
 

@@ -2,6 +2,8 @@ package ru.aston.trainee.team3_library.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -36,6 +38,11 @@ public class User {
     @Lob
     @Column(name = "profile_picture_link")
     private String profilePictureLink;
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -109,4 +116,11 @@ public class User {
         this.profilePictureLink = profilePictureLink;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }
