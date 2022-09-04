@@ -11,8 +11,10 @@ public class Book {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "author_id")
-    private Long authorId;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "author_id")
+    private Author author;
 
     @Lob
     @Column(name = "genre")

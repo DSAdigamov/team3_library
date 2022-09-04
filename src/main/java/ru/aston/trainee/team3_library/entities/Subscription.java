@@ -11,8 +11,9 @@ public class Subscription {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User userId;
 
     @Column(name = "\"isActive\"")
     private Boolean isActive;

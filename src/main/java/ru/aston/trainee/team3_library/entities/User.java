@@ -14,7 +14,7 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Lob
+    @Lob @Type(type = "org.hibernate.type.TextType")
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -33,7 +33,7 @@ public class User {
     @Column(name = "balance")
     private Double balance;
 
-    @Lob
+    @Lob @Type(type = "org.hibernate.type.TextType")
     @Column(name = "profile_picture_link")
     private String profilePictureLink;
 

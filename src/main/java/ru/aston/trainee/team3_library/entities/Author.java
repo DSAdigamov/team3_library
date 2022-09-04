@@ -10,6 +10,9 @@ public class Author {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @OneTomany(mappedBy = "author")
+    private List<Book> books;
+
     @Column(name = "first_name", length = 30)
     private String firstName;
 

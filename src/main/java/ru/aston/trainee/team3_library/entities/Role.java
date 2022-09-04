@@ -9,7 +9,7 @@ public class Role {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Lob
+    @Lob @Type(type = "org.hibernate.type.TextType")
     @Column(name = "name")
     private String name;
 
