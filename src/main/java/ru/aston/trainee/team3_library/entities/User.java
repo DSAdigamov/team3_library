@@ -11,6 +11,9 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @OneTomany(mappedBy = "user")
+    private List<Transactions> transactions;
+
     @Column(name = "email", nullable = false)
     private String email;
 
