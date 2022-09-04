@@ -1,15 +1,14 @@
 package ru.aston.trainee.team3_library.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Entity
+@NoArgsConstructor @AllArgsConstructor
 @Builder
-@AllArgsConstructor
-@RequiredArgsConstructor
+@Setter @Getter
+@Entity
 @Table(name = "authors")
 public class Author {
     @Id
@@ -17,34 +16,12 @@ public class Author {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "first_name", length = 30)
+    @Column(name = "first_name", length = 30, nullable = false)
     private String firstName;
 
     @Column(name = "last_name", length = 30)
     private String lastName;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<Book> books;
 }

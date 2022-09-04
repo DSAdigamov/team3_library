@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1662319438241-2
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: books_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age_allowence
+                  type: INTEGER
+              - column:
+                  name: date_of_publication
+                  type: date
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: genre
+                  type: VARCHAR(255)
+              - column:
+                  name: image_link
+                  type: VARCHAR(255)
+              - column:
+                  name: premium
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: author_id
+                  type: BIGINT
+            tableName: books

@@ -1,0 +1,99 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1662319438241-10
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_roles
+            constraintName: fk2o0jvgh89lemvvo17cbqvdxaa
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: 1662319438241-11
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: notifications
+            constraintName: fk9y21adhxn0ayjhfocscqox7bh
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: 1662319438241-12
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_books
+            constraintName: fkddv9o0ehcbpn1xdvypcynju0u
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: 1662319438241-13
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: users_books
+            constraintName: fkdwwhr7eeuyhofjtfn0xxqimph
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: books
+
+  - changeSet:
+      id: 1662319438241-14
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: author_id
+            baseTableName: books
+            constraintName: fkfjixh2vym2cvfj3ufxj91jem7
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: authors
+
+  - changeSet:
+      id: 1662319438241-15
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: users_roles
+            constraintName: fkj6m8fwv7oqv74fcehir1a9ffy
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: roles
+
+  - changeSet:
+      id: 1662319438241-16
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: transactions
+            constraintName: fkqwv7rmvc8va8rep7piikrojds
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+

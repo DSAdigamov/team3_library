@@ -19,7 +19,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void createTransaction(TransactionDto transactionDto) {
         Transaction transaction = Transaction.builder()
-                .userId(transactionDto.getUserId())
+                .user(transactionDto.getUser())
                 .totalCost(transactionDto.getTotalCost())
                 .type(transactionDto.getType())
                 .build();

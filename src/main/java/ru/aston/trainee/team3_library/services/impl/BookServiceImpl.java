@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public void createBook(BookDto bookDto) {
         Book book = Book.builder()
-                .authorId(bookDto.getAuthorId())
+                .author(bookDto.getAuthor())
                 .genre(bookDto.getGenre())
                 .dateOfPublication(bookDto.getDateOfPublication())
                 .ageAllowence(bookDto.getAgeAllowense())

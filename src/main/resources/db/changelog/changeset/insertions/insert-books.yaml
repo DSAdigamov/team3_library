@@ -1,0 +1,173 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_books
+      author: danil9
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Eugene Onegin
+              - column:
+                  name: genre
+                  value: novel
+              - column:
+                  name: date_of_publication
+                  value: 1825-00-00
+              - column:
+                  name: age_allowence
+                  value: 12
+              - column:
+                  name: premium
+                  value: false
+              - column:
+                  name: description
+                  value: "test description for Eugene Onegin"
+              - column:
+                  name: author_id
+                  value: 1
+
+
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: The Captain's Daughter
+              - column:
+                  name: genre
+                  value: Historical novel
+              - column:
+                  name: date_of_publication
+                  value: 1836-00-00
+              - column:
+                  name: age_allowence
+                  value: 12
+              - column:
+                  name: premium
+                  value: true
+              - column:
+                  name: description
+                  value: "test description for Captain's Daughter"
+              - column:
+                  name: author_id
+                  value: 1
+
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: name
+                  value: Ruslan and Lyudmila
+              - column:
+                  name: genre
+                  value: Poem
+              - column:
+                  name: date_of_publication
+                  value: 1820-00-00
+              - column:
+                  name: age_allowence
+                  value: 6
+              - column:
+                  name: premium
+                  value: false
+              - column:
+                  name: description
+                  value: test descript 3
+              - column:
+                  name: author_id
+                  value: 1
+
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: name
+                  value: Clean Code
+              - column:
+                  name: genre
+                  value: Computer science
+              - column:
+                  name: date_of_publication
+                  value: 2009-00-00
+              - column:
+                  name: age_allowence
+                  value: 0
+              - column:
+                  name: premium
+                  value: true
+              - column:
+                  name: description
+                  value: test descript 4
+              - column:
+                  name: author_id
+                  value: 3
+
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: name
+                  value: Clean Architecture
+              - column:
+                  name: genre
+                  value: Computer science
+              - column:
+                  name: date_of_publication
+                  value: 2017-00-00
+              - column:
+                  name: age_allowence
+                  value: 0
+              - column:
+                  name: premium
+                  value: false
+              - column:
+                  name: description
+                  value: test descript 5
+              - column:
+                  name: author_id
+                  value: 3
+
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: name
+                  value: Dead Souls
+              - column:
+                  name: genre
+                  value: Picaresque
+              - column:
+                  name: date_of_publication
+                  value: 1842-00-00
+              - column:
+                  name: age_allowence
+                  value: 16
+              - column:
+                  name: premium
+                  value: true
+              - column:
+                  name: description
+                  value: test descript 6
+              - column:
+                  name: author_id
+                  value: 2

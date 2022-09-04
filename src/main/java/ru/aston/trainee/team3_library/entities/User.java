@@ -1,16 +1,18 @@
 package ru.aston.trainee.team3_library.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
-@AllArgsConstructor
-@RequiredArgsConstructor
+@Getter @Setter
+@AllArgsConstructor @NoArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -21,7 +23,6 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Lob
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -34,86 +35,32 @@ public class User {
     @Column(name = "last_name", length = 30)
     private String lastName;
 
+    @CreatedDate
     @Column(name = "registration_date")
     private LocalDate registrationDate;
 
     @Column(name = "balance")
     private Double balance;
 
-    @Lob
     @Column(name = "profile_picture_link")
     private String profilePictureLink;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Notification> notifications;
 
-    public String getEmail() {
-        return email;
-    }
+    @ManyToMany
+    @JoinTable(name = "users_books",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
+    private List<Book> books;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDate getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(LocalDate registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
-    public String getProfilePictureLink() {
-        return profilePictureLink;
-    }
-
-    public void setProfilePictureLink(String profilePictureLink) {
-        this.profilePictureLink = profilePictureLink;
-    }
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
 }

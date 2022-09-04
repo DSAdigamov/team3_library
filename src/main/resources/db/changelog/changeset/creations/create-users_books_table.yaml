@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1662319438241-8
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: book_id
+                  type: BIGINT
+            tableName: users_books

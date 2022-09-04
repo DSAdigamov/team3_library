@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1662319438241-3
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: notifications_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: book_id
+                  type: BIGINT
+              - column:
+                  name: image_small_link
+                  type: VARCHAR(255)
+              - column:
+                  name: info
+                  type: OID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+            tableName: notifications
