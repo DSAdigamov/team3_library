@@ -40,6 +40,22 @@ public class Notification {
         this.id = id;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     public Long getUserId() {
         return userId;
     }

@@ -19,6 +19,14 @@ public class Author {
     @Column(name = "last_name", length = 30)
     private String lastName;
 
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
     public Long getId() {
         return id;
     }

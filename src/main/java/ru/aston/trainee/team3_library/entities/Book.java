@@ -47,6 +47,14 @@ public class Book {
         this.author = author;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public void setTransactions(List<Transactions> transactions) {
         this.transactions = transactions;
     }

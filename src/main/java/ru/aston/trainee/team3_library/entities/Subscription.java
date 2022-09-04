@@ -25,6 +25,22 @@ public class Subscription {
     @Column(name = "date_exparation")
     private LocalDate dateExparation;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
     public Long getId() {
         return id;
     }

@@ -62,6 +62,22 @@ public class User {
         return books;
     }
 
+    public void setTransactions(List<Transactions> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     public Long getId() {
         return id;
     }
