@@ -31,7 +31,7 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
 
-    @GetMapping("/{authorId}")
+    @GetMapping("author/{authorId}")
     public List<Book> getBooksByAuthorId(@PathVariable Long authorId) {
         return bookService.getBooksByAuthorId(authorId);
     }
