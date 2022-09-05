@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1662319438241-9
+      author: Даниль (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_roles_pkey
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_roles_pkey
+                  name: role_id
+                  type: INTEGER
+            tableName: users_roles

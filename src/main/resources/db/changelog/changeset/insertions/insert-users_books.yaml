@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_users_books
+      author: danil9
+      changes:
+        - insert:
+            tableName: users_books
+            columns:
+              - column:
+                  name: user_id
+                  value: 3
+              - column:
+                  name: book_id
+                  value: 2
+
+        - insert:
+            tableName: users_books
+            columns:
+              - column:
+                  name: user_id
+                  value: 3
+              - column:
+                  name: book_id
+                  value: 4
+
+        - insert:
+            tableName: users_books
+            columns:
+              - column:
+                  name: user_id
+                  value: 3
+              - column:
+                  name: book_id
+                  value: 6
+
+        - insert:
+            tableName: users_books
+            columns:
+              - column:
+                  name: user_id
+                  value: 4
+              - column:
+                  name: book_id
+                  value: 1
+
+        - insert:
+            tableName: users_books
+            columns:
+              - column:
+                  name: user_id
+                  value: 4
+              - column:
+                  name: book_id
+                  value: 3

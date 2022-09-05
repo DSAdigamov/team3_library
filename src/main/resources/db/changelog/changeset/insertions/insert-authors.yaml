@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_authors
+      author: danil9
+      changes:
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: first_name
+                  value: Aleksandr
+              - column:
+                  name: last_name
+                  value: Pushkin
+
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: first_name
+                  value: Nikolai
+              - column:
+                  name: last_name
+                  value: Gogol
+
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: first_name
+                  value: Robert
+              - column:
+                  name: last_name
+                  value: Martin
