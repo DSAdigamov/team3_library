@@ -7,9 +7,6 @@ databaseChangeLog:
             tableName: books
             columns:
               - column:
-                  name: id
-                  value: 1
-              - column:
                   name: name
                   value: Eugene Onegin
               - column:
@@ -36,9 +33,6 @@ databaseChangeLog:
             tableName: books
             columns:
               - column:
-                  name: id
-                  value: 2
-              - column:
                   name: name
                   value: The Captain's Daughter
               - column:
@@ -63,9 +57,6 @@ databaseChangeLog:
         - insert:
             tableName: books
             columns:
-              - column:
-                  name: id
-                  value: 3
               - column:
                   name: name
                   value: Ruslan and Lyudmila
@@ -92,9 +83,6 @@ databaseChangeLog:
             tableName: books
             columns:
               - column:
-                  name: id
-                  value: 4
-              - column:
                   name: name
                   value: Clean Code
               - column:
@@ -120,9 +108,6 @@ databaseChangeLog:
             tableName: books
             columns:
               - column:
-                  name: id
-                  value: 5
-              - column:
                   name: name
                   value: Clean Architecture
               - column:
@@ -147,9 +132,6 @@ databaseChangeLog:
         - insert:
             tableName: books
             columns:
-              - column:
-                  name: id
-                  value: 6
               - column:
                   name: name
                   value: Dead Souls

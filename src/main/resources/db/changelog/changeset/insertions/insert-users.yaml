@@ -7,9 +7,6 @@ databaseChangeLog:
             tableName: users
             columns:
               - column:
-                  name: id
-                  value: "1"
-              - column:
                   name: email
                   value: "test1@gmail.com"
               - column:
@@ -31,9 +28,6 @@ databaseChangeLog:
         - insert:
             tableName: users
             columns:
-              - column:
-                  name: id
-                  value: "2"
               - column:
                   name: email
                   value: "test2@gmail.com"
@@ -57,9 +51,6 @@ databaseChangeLog:
             tableName: users
             columns:
               - column:
-                  name: id
-                  value: "3"
-              - column:
                   name: email
                   value: "test3@gmail.com"
               - column:
@@ -82,9 +73,6 @@ databaseChangeLog:
             tableName: users
             columns:
               - column:
-                  name: id
-                  value: "4"
-              - column:
                   name: email
                   value: "test4@gmail.com"
               - column:
@@ -106,9 +94,6 @@ databaseChangeLog:
         - insert:
             tableName: users
             columns:
-              - column:
-                  name: id
-                  value: "5"
               - column:
                   name: email
                   value: "test5@gmail.com"

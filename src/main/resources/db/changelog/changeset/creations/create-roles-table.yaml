@@ -7,8 +7,8 @@ databaseChangeLog:
         - createTable:
             columns:
               - column:
+                  autoIncrement: true
                   constraints:
-                    nullable: false
                     primaryKey: true
                     primaryKeyName: roles_pkey
                   name: id

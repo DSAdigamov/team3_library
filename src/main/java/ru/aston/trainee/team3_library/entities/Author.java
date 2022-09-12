@@ -13,7 +13,7 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "first_name", length = 30, nullable = false)

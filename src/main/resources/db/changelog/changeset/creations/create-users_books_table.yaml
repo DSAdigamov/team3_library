@@ -8,12 +8,10 @@ databaseChangeLog:
             columns:
               - column:
                   constraints:
-                    nullable: false
                   name: user_id
                   type: BIGINT
               - column:
                   constraints:
-                    nullable: false
                   name: book_id
                   type: BIGINT
             tableName: users_books

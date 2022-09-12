@@ -13,7 +13,8 @@ import java.util.List;
 @Table(name = "roles")
 public class Role {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name")
