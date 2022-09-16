@@ -13,4 +13,6 @@ public interface UserService {
 
     void deleteUserById(Long bookId);
 
+    void createUser(User user);
+
 }

@@ -2,6 +2,9 @@ package ru.aston.trainee.team3_library;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class Team3LibraryApplication {
@@ -10,4 +13,8 @@ public class Team3LibraryApplication {
         SpringApplication.run(Team3LibraryApplication.class, args);
     }
 
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
