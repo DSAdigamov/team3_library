@@ -1,24 +1,26 @@
 package ru.aston.trainee.team3_library.jwt;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Primary
 public class JwtUtil {
 
-    private Algorithm algorithm;
+    private SignatureAlgorithm algorithm;
     @Value("${jwt.token.secret}")
     private String jwtSecret;
     @Value("${access.token.expired}")
@@ -26,35 +28,51 @@ public class JwtUtil {
     @Value("${refresh.token.expired}")
     private Long refreshTokenExpiration;
 
-    public String createAccessToken(UserDetails jwtUser, HttpServletRequest request) {
-        algorithm = Algorithm.HMAC256(jwtSecret.getBytes());
-        String accessToken = JWT.create()
-                .withSubject(jwtUser.getUsername())
-                .withExpiresAt(new Date(accessTokenExpiration))
-                .withIssuer(request.getRequestURL().toString())
-                .withClaim("roles", jwtUser.getAuthorities()
-                        .stream()
-                        .map(GrantedAuthority::getAuthority)
-                        .collect(Collectors.toList()))
-                .sign(algorithm);
-        return accessToken;
+    public String createAccessToken(JwtUser jwtUser) {
+        List<String> roles = jwtUser.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+        return Jwts.builder()
+                .setExpiration(new Date(System.currentTimeMillis() + accessTokenExpiration))
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .claim("id", jwtUser.getId())
+                .claim("roles", roles)
+                .claim("iss", "com.aston.team3library")
+                .claim("sub", "com.aston.team3library")
+                .compact();
     }
 
-    public String createRefreshToken(UserDetails jwtUser, HttpServletRequest request) {
-        algorithm = Algorithm.HMAC256(jwtSecret.getBytes());
-        String refreshToken = JWT.create()
-                .withSubject(jwtUser.getUsername())
-                .withExpiresAt(new Date(refreshTokenExpiration))
-                .withIssuer(request.getRequestURL().toString())
-                .sign(algorithm);
-        return refreshToken;
+    public String createRefreshToken(JwtUser jwtUser) {
+        return Jwts.builder()
+                .setExpiration(new Date(System.currentTimeMillis() + refreshTokenExpiration))
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .claim("id", jwtUser.getId())
+                .claim("roles", Collections.EMPTY_LIST)
+                .claim("iss", "com.aston.team3library")
+                .claim("sub", "com.aston.team3library")
+                .compact();
     }
 
-    public String getUsernameFromToken(String currentRefreshToken) {
-        algorithm = Algorithm.HMAC256("secret".getBytes());
-        JWTVerifier verifier = JWT.require(algorithm).build();
-        DecodedJWT decodedJWT = verifier.verify(currentRefreshToken);
-        String username = decodedJWT.getSubject();
-        return username;
+    public boolean isValid(String token) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(jwtSecret).build()
+                .parseClaimsJws(token).getBody();
+        Date expirationTime = claims.getExpiration();
+        if (expirationTime != null && expirationTime.after(new Date())) {
+            return true;
+        }
+        return false;
+    }
+
+    public Long getUserId(String token) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(jwtSecret).build()
+                .parseClaimsJws(token).getBody();
+        return claims.get("id", Long.class);
+    }
+
+    public Collection<? extends GrantedAuthority> getAuthorities(String token) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(jwtSecret).build()
+                .parseClaimsJws(token).getBody();
+        List<String> roles = claims.get("roles", List.class);
+        return roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 }

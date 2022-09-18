@@ -10,7 +10,6 @@ import java.util.Collection;
 @Getter
 @RequiredArgsConstructor
 public class JwtUser implements UserDetails {
-
     private final Long id;
     private final String username;
     private final String password;
