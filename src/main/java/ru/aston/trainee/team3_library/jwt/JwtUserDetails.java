@@ -8,8 +8,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.webjars.NotFoundException;
 import ru.aston.trainee.team3_library.entities.User;
 import ru.aston.trainee.team3_library.repositories.UserRepository;
+import ru.aston.trainee.team3_library.services.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,10 +24,7 @@ public class JwtUserDetails implements UserDetailsService {
     private final UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
+        userRepository.findByUsername(username);
         return getJwtUser(username);
     }
 
@@ -36,7 +35,7 @@ public class JwtUserDetails implements UserDetailsService {
     }
 
     private JwtUser getJwtUser(String username) {
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username).get();
         return new JwtUser(
                 user.getId(),
                 user.getUsername(),

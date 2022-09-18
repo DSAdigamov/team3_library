@@ -11,10 +11,8 @@ public class Team3LibraryApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Team3LibraryApplication.class, args);
+
     }
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

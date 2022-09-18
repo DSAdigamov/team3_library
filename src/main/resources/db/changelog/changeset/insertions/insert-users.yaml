@@ -13,6 +13,9 @@ databaseChangeLog:
                   name: email
                   value: "test1@gmail.com"
               - column:
+                  name: username
+                  value: "Petruha"
+              - column:
                   name: password
                   value: "123"
               - column:
@@ -37,6 +40,9 @@ databaseChangeLog:
               - column:
                   name: email
                   value: "test2@gmail.com"
+              - column:
+                  name: username
+                  value: "Vovan"
               - column:
                   name: password
                   value: "123"
@@ -63,6 +69,9 @@ databaseChangeLog:
                   name: email
                   value: "test3@gmail.com"
               - column:
+                  name: username
+                  value: "VasyanPro"
+              - column:
                   name: password
                   value: "123"
               - column:
@@ -88,6 +97,9 @@ databaseChangeLog:
                   name: email
                   value: "test4@gmail.com"
               - column:
+                  name: username
+                  value: "SanyaCreditor"
+              - column:
                   name: password
                   value: "1234"
               - column:
@@ -112,6 +124,9 @@ databaseChangeLog:
               - column:
                   name: email
                   value: "test5@gmail.com"
+              - column:
+                  name: username
+                  value: "VasyanObichniy"
               - column:
                   name: password
                   value: "12345"

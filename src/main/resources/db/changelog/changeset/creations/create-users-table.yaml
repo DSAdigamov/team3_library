@@ -26,6 +26,11 @@ databaseChangeLog:
                   name: email
                   type: VARCHAR(255)
               - column:
+                  constraints:
+                    nullable: false
+                  name: username
+                  type: VARCHAR(255)
+              - column:
                   name: first_name
                   type: VARCHAR(30)
               - column:
