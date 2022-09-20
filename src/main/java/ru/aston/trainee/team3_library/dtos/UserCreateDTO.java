@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,15 +8,12 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class UserCreateDTO {
     private String username;
     private String email;
     private String password;
-
-
-    public UserCreateDTO(String username, String email, String password, String firstName, String lastName, LocalDate birthDate, LocalDate registrationDate) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
 }

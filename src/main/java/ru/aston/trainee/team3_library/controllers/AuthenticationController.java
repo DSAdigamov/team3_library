@@ -34,7 +34,9 @@ public class AuthenticationController {
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public UserCreateDTO saveUser(@RequestBody UserCreateDTO userCreateDTO) {
-        User user = new User(userCreateDTO.getUsername(), passwordEncoder.encode(userCreateDTO.getPassword()), userCreateDTO.getEmail());
+        User user = new User(userCreateDTO.getEmail(), userCreateDTO.getUsername(), passwordEncoder.encode(userCreateDTO.getPassword()),
+                userCreateDTO.getBirthDate(), userCreateDTO.getFirstName(),
+                userCreateDTO.getLastName());
         userService.createUser(user);
         return userCreateDTO;
     }

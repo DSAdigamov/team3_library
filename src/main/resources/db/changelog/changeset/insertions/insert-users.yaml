@@ -14,7 +14,7 @@ databaseChangeLog:
                   value: "Petruha"
               - column:
                   name: password
-                  value: "123"
+                  value: "$2a$10$SaoQFmPHwty5xdf..auh3OPWa64KoNNJxUtRA6tlj27MCmOSNSh9a"
               - column:
                   name: birth_date
                   value: 2001-01-01
@@ -39,7 +39,7 @@ databaseChangeLog:
                   value: "Vovan"
               - column:
                   name: password
-                  value: "123"
+                  value: "$2a$10$SaoQFmPHwty5xdf..auh3OPWa64KoNNJxUtRA6tlj27MCmOSNSh9a"
               - column:
                   name: birth_date
                   value: 2002-02-02
@@ -64,7 +64,7 @@ databaseChangeLog:
                   value: "VasyanPro"
               - column:
                   name: password
-                  value: "123"
+                  value: "$2a$10$SaoQFmPHwty5xdf..auh3OPWa64KoNNJxUtRA6tlj27MCmOSNSh9a"
               - column:
                   name: birth_date
                   value: 2003-03-03
@@ -89,7 +89,7 @@ databaseChangeLog:
                   value: "SanyaCreditor"
               - column:
                   name: password
-                  value: "1234"
+                  value: "$2a$10$dQ9T3EwY55R.dWVmlz7f9eF0P8s0c6c63vUhO9XOiCEhnN6ujAFCi"
               - column:
                   name: birth_date
                   value: 2004-04-04
@@ -114,7 +114,7 @@ databaseChangeLog:
                   value: "VasyanObichniy"
               - column:
                   name: password
-                  value: "12345"
+                  value: "$2a$10$xtBp0YaFNUYZzftcU5OmCe9rl/Ujy.PCJzhchyJLb102jurgM1vQW"
               - column:
                   name: birth_date
                   value: 2003-03-03
