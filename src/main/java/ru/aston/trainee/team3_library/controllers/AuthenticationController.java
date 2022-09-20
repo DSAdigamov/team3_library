@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aston.trainee.team3_library.dtos.AuthRequest;
-import ru.aston.trainee.team3_library.dtos.LoginResponse;
 import ru.aston.trainee.team3_library.dtos.TokenResponse;
 import ru.aston.trainee.team3_library.dtos.UserCreateDTO;
 import ru.aston.trainee.team3_library.entities.User;
@@ -24,7 +23,7 @@ import ru.aston.trainee.team3_library.services.impl.UserServiceImpl;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/auth/")
+@RequestMapping("/api/v1/auth/")
 public class AuthenticationController {
 
     private final UserServiceImpl userService;
@@ -49,7 +48,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
-    public LoginResponse login(@RequestBody AuthRequest request) {
+    public TokenResponse login(@RequestBody AuthRequest request) {
         JwtUser jwtUser = authenticationService.getAuthenticated(request);
         return authenticationService.getLoginResponse(jwtUser);
     }

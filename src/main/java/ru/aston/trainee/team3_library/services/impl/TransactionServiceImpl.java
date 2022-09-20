@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.services.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.aston.trainee.team3_library.dtos.TransactionDto;
 import ru.aston.trainee.team3_library.entities.Transaction;
@@ -9,12 +10,9 @@ import ru.aston.trainee.team3_library.services.TransactionService;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
-
-    public TransactionServiceImpl(TransactionRepository transactionRepository) {
-        this.transactionRepository = transactionRepository;
-    }
 
     @Override
     public void createTransaction(TransactionDto transactionDto) {

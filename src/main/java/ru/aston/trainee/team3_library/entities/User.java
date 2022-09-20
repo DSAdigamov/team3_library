@@ -1,6 +1,6 @@
 package ru.aston.trainee.team3_library.entities;
 
-import javax.persistence.FetchType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,11 +24,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Builder
 @Getter
 @Setter
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -64,15 +64,18 @@ public class User {
     private String profilePictureLink;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Transaction> transactions;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Notification> notifications;
 
     @ManyToMany
     @JoinTable(name = "users_books",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
+    @JsonIgnore
     private List<Book> books;
 
     @ManyToMany

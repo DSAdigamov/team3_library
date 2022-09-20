@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 @Data
 public class UserDto {
-
     private String email;
 
     private String password;
@@ -22,5 +21,4 @@ public class UserDto {
     private Double balance;
 
     private String profilePictureLink;
-
 }

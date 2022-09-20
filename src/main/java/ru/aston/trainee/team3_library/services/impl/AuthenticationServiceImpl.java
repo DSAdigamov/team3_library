@@ -6,7 +6,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import ru.aston.trainee.team3_library.dtos.AuthRequest;
-import ru.aston.trainee.team3_library.dtos.LoginResponse;
 import ru.aston.trainee.team3_library.dtos.TokenResponse;
 import ru.aston.trainee.team3_library.jwt.JwtUser;
 import ru.aston.trainee.team3_library.jwt.JwtUtil;
@@ -41,12 +40,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public LoginResponse getLoginResponse(JwtUser jwtUser) {
+    public TokenResponse getLoginResponse(JwtUser jwtUser) {
         String accessToken = jwtUtil.createAccessToken(jwtUser);
         String refreshToken = jwtUtil.createRefreshToken(jwtUser);
         tokenStorageMap.put(jwtUser.getUsername(), refreshToken);
-        return new LoginResponse(accessToken, refreshToken);
+        return new TokenResponse(accessToken, refreshToken);
     }
+
     @Override
     public JwtUser getJwtUser(Authentication authentication) {
         return (JwtUser) authentication.getPrincipal();

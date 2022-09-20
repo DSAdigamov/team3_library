@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 @Data
 public class BookDto {
-
     private Author author;
 
     private String genre;
@@ -21,5 +20,4 @@ public class BookDto {
     private String description;
 
     private String imageLink;
-
 }
