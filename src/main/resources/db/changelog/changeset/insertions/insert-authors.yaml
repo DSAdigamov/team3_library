@@ -7,9 +7,6 @@ databaseChangeLog:
             tableName: authors
             columns:
               - column:
-                  name: id
-                  value: 1
-              - column:
                   name: first_name
                   value: Aleksandr
               - column:
@@ -20,9 +17,6 @@ databaseChangeLog:
             tableName: authors
             columns:
               - column:
-                  name: id
-                  value: 2
-              - column:
                   name: first_name
                   value: Nikolai
               - column:
@@ -32,9 +26,6 @@ databaseChangeLog:
         - insert:
             tableName: authors
             columns:
-              - column:
-                  name: id
-                  value: 3
               - column:
                   name: first_name
                   value: Robert

@@ -1,20 +1,36 @@
 package ru.aston.trainee.team3_library.entities;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
-@NoArgsConstructor @AllArgsConstructor
-@Setter @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Builder
 @Entity
 @Table(name = "books")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -32,7 +48,6 @@ public class Book {
     @Column(name = "premium")
     private Boolean premium;
 
-    @Lob
     @Column(name = "description")
     private String description;
 
@@ -41,8 +56,10 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
+    @JsonIgnore
     private Author author;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "books")
     private List<User> users;
 }

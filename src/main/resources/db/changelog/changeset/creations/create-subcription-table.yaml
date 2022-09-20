@@ -9,7 +9,6 @@ databaseChangeLog:
               - column:
                   autoIncrement: true
                   constraints:
-                    nullable: false
                     primaryKey: true
                     primaryKeyName: subscription_pkey
                   name: id

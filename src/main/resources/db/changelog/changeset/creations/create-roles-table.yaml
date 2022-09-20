@@ -7,12 +7,12 @@ databaseChangeLog:
         - createTable:
             columns:
               - column:
+                  autoIncrement: true
                   constraints:
-                    nullable: false
                     primaryKey: true
                     primaryKeyName: roles_pkey
                   name: id
-                  type: INTEGER
+                  type: BIGINT
               - column:
                   name: name
                   type: VARCHAR(255)

@@ -9,7 +9,6 @@ databaseChangeLog:
               - column:
                   autoIncrement: true
                   constraints:
-                    nullable: false
                     primaryKey: true
                     primaryKeyName: authors_pkey
                   name: id
