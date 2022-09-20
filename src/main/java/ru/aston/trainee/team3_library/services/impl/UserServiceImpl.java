@@ -1,6 +1,7 @@
 package ru.aston.trainee.team3_library.services.impl;
 
 import java.time.LocalDate;
+import java.util.Set;
 import javax.management.openmbean.KeyAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createUser(User user) {
         log.info("Trying to save user: {}", user);
-        user.getRoles().add(roleRepository.findByName("ROLE_USER").get());
+        user.setRoles(Set.of(roleRepository.findByName("ROLE_USER").get()));
         user.setBalance(0.00);
         user.setRegistrationDate(LocalDate.now());
 
