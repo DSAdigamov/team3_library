@@ -18,8 +18,8 @@ import java.util.List;
 @Table(name = "roles")
 public class Role {
     @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;
