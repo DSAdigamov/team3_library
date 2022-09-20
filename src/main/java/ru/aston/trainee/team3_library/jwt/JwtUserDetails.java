@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.webjars.NotFoundException;
 import ru.aston.trainee.team3_library.entities.User;
 import ru.aston.trainee.team3_library.repositories.UserRepository;
-import ru.aston.trainee.team3_library.services.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,10 +21,11 @@ import java.util.stream.Collectors;
 public class JwtUserDetails implements UserDetailsService {
 
     private final UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        userRepository.findByUsername(username);
-        return getJwtUser(username);
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("No such user"));
+        return getJwtUser(user);
     }
 
     private List<GrantedAuthority> mapToGrantedAuthority(User user) {
@@ -34,8 +34,12 @@ public class JwtUserDetails implements UserDetailsService {
                 .collect(Collectors.toList());
     }
 
-    private JwtUser getJwtUser(String username) {
-        User user = userRepository.findByUsername(username).get();
+    public UserDetails loadUserByUserId(Long userId) throws UsernameNotFoundException {
+        User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("No such user"));
+        return getJwtUser(user);
+    }
+
+    private JwtUser getJwtUser(User user) {
         return new JwtUser(
                 user.getId(),
                 user.getUsername(),
@@ -47,5 +51,4 @@ public class JwtUserDetails implements UserDetailsService {
                 true
         );
     }
-
 }
