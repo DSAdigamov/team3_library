@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.entities;
 
+import javax.persistence.FetchType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

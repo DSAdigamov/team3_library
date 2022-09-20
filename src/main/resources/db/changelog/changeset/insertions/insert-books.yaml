@@ -23,7 +23,7 @@ databaseChangeLog:
                   value: false
               - column:
                   name: description
-                  value: "test description for Eugene Onegin"
+                  value: test description for Eugene Onegin
               - column:
                   name: author_id
                   value: 1
@@ -49,7 +49,7 @@ databaseChangeLog:
                   value: true
               - column:
                   name: description
-                  value: "test description for Captain's Daughter"
+                  value: test description for Captain's Daughter
               - column:
                   name: author_id
                   value: 1

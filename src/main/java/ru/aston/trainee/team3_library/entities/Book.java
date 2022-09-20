@@ -48,7 +48,6 @@ public class Book {
     @Column(name = "premium")
     private Boolean premium;
 
-    @Lob
     @Column(name = "description")
     private String description;
 
@@ -60,6 +59,7 @@ public class Book {
     @JsonIgnore
     private Author author;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "books")
     private List<User> users;
 }
