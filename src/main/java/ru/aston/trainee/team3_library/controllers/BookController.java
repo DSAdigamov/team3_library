@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Authentication")
 @RequestMapping("/api/v1/books")
 public class BookController {
     private final BookService bookService;

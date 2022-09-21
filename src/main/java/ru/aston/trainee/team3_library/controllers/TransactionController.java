@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Authentication")
 @RequestMapping("/api/v1/transactions")
 public class TransactionController {
     private final TransactionService transactionService;

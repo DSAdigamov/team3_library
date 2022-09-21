@@ -1,5 +1,6 @@
 package ru.aston.trainee.team3_library.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Authentication")
 @RequestMapping("/api/v1/users")
 public class UserController {
     private final UserService userService;
